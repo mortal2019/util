@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5caccf9b-0615-4bff-bd59-3591ea83c448" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/mortal2019/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/mortal2019/ifrun/IfRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/asserts/BaseAssert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/constant/ResultEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/exception/BaseException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/exception/ResultException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/exception/RetryUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/functional/MapToT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/functional/ObjectToT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/map/MapUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/model/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/mortal2019/spring/SpringUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/pwd/Md5SaltUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/date/TimestampUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/date/TimestampUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/model/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/util/src/main/java/com/mortal2019/model/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +42,12 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "corretto-17",
     "last_opened_file_path": "C:/Users/61999/projects/utils",
@@ -70,5 +60,8 @@
 }]]></component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

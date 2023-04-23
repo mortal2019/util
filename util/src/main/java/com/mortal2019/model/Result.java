@@ -3,14 +3,8 @@ package com.mortal2019.model;
 import com.mortal2019.asserts.BaseAssert;
 import com.mortal2019.exception.ResultException;
 import com.mortal2019.functional.MapToT;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
