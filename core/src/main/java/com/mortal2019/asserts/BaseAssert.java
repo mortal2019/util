@@ -1,6 +1,7 @@
 package com.mortal2019.asserts;
 
 import com.mortal2019.constant.ResultEnum;
+import com.mortal2019.exception.BaseException;
 
 import java.util.function.Function;
 
@@ -100,7 +101,7 @@ public class BaseAssert {
      */
     public static void assertTrue(boolean value, ResultEnum resultEnum) {
         if (!value) {
-            throw new LhyException(resultEnum);
+            throw new BaseException(resultEnum);
         }
     }
 
