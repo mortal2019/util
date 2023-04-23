@@ -47,8 +47,6 @@ public class TimePeriod {
      *
      * @param timestamp 检测时间点
      * @return boolean
-     * @author wuyiyuan
-     * Created DateTime 2023/4/23 11:34
      */
     public boolean isInTimePeriod(Timestamp timestamp) {
         return beginTime.before(timestamp) && endTime.after(timestamp);

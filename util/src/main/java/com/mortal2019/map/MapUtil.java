@@ -279,8 +279,6 @@ public class MapUtil {
      * @param classOfT T.class
      * @param <T>      得到的类
      * @return T
-     * @author wuyiyuan
-     * Created DateTime 2022-01-22 16:42
      */
     public static <T> T fromMap(Map<String, Object> map, Class<T> classOfT) {
         String json = new Gson().toJson(map);
@@ -516,8 +514,6 @@ public class MapUtil {
      * @param function             转换
      * @param initializeCollection 初始化 Collection
      * @return java.util.Collection<T>
-     * @author wuyiyuan
-     * Created DateTime 2021-08-06 9:50
      */
     public <T, R extends Collection<T>> R getCollectionValue(String key, Function<Object, T> function, Supplier<R> initializeCollection) {
         Function<Object, ResInfo<T>> function2 = (obj) -> new ResInfo<>(true, function.apply(obj));
@@ -531,8 +527,6 @@ public class MapUtil {
      * @param function             转换
      * @param initializeCollection 初始化 Collection
      * @return java.util.Collection<T>
-     * @author wuyiyuan
-     * Created DateTime 2021-08-06 9:50
      */
     public <T, R extends Collection<T>> R getCollectionValueAllowJudgment(String key, Function<Object, ResInfo<T>> function, Supplier<R> initializeCollection) {
         R resList = initializeCollection.get();
@@ -610,8 +604,6 @@ public class MapUtil {
      * @param mapToT 转换函数
      * @param <T>    泛型
      * @return org.springframework.data.domain.PageImpl<T>
-     * @author wuyiyuan
-     * Created DateTime 2021-11-29 17:18
      */
     public static <T> @NotNull PageImpl<T> mapToPageImpl(Map<String, Object> map, MapToT<T> mapToT) {
         MapUtil mapUtil = new MapUtil(map);

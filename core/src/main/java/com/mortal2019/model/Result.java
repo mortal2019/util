@@ -3,8 +3,16 @@ package com.mortal2019.model;
 import com.mortal2019.asserts.BaseAssert;
 import com.mortal2019.exception.ResultException;
 import com.mortal2019.functional.MapToT;
+import com.mortal2019.functional.ObjectToT;
+import com.mortal2019.map.MapUtil;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -152,8 +160,6 @@ public class Result<T> implements Serializable {
      *
      * @param map 传入数据
      * @return java.lang.Object
-     * @author wuyiyuan
-     * Created DateTime 2021-11-25 17:11
      */
     public static Object getResultObj(Map<String, Object> map) {
         return getValueOfResultMap(map, o -> o);
@@ -166,8 +172,6 @@ public class Result<T> implements Serializable {
      * @param mapToT 转换函数
      * @param <T>    转换类型
      * @return java.util.List<T> 返回转换后的数组（过滤null数据）
-     * @author wuyiyuan
-     * Created DateTime 2021-11-25 17:05
      */
     public static <T> List<T> getResultToList(Map<String, Object> map, MapToT<T> mapToT) {
         BaseAssert.assertNotNull(mapToT, new ResultException("不能传入null解析方法mapToT。"));
@@ -194,8 +198,6 @@ public class Result<T> implements Serializable {
      * @param mapToT 转换函数
      * @param <T>    转换类型
      * @return T 返回转换后的结果
-     * @author wuyiyuan
-     * Created DateTime 2021-11-25 17:10
      */
     public static <T> T getResultData(Map<String, Object> map, MapToT<T> mapToT) {
         BaseAssert.assertNotNull(mapToT, new ResultException("不能传入null解析方法mapToT。"));
@@ -208,9 +210,7 @@ public class Result<T> implements Serializable {
      * 将map转换成Result
      *
      * @param map Result的map结构
-     * @return com.wuyiyuan.util.model.Result<java.lang.Object> 返回Result结构
-     * @author wuyiyuan
-     * Created DateTime 2021-11-25 17:08
+     * @return  com.mortal2019.model.Result<java.lang.Object> 返回Result结构
      */
     public static Result<Object> getResult(Map<String, Object> map) {
         BaseAssert.assertNotNull(map, new ResultException("传入null值,无法进行解析map。"));
@@ -233,8 +233,6 @@ public class Result<T> implements Serializable {
      * @param objectToT 数据转换函数
      * @param <T>       转换后的类型
      * @return T 转换后的结果
-     * @author wuyiyuan
-     * Created DateTime 2021-11-25 16:52
      */
     public static <T> T getValueOfResultMap(Map<String, Object> map, ObjectToT<T> objectToT) {
         BaseAssert.assertNotNull(objectToT, new ResultException("不能传入null解析方法mapToT。"));
@@ -251,8 +249,6 @@ public class Result<T> implements Serializable {
      * @param mapToT 转换函数
      * @param <T>    泛型
      * @return org.springframework.data.domain.PageImpl<T>
-     * @author wuyiyuan
-     * Created DateTime 2021-11-29 17:18
      */
     @Contract("_, _ -> new")
     public static <T> @NotNull PageImpl<T> getResultToPageImpl(Map<String, Object> map, MapToT<T> mapToT) {

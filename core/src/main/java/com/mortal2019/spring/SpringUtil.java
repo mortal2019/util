@@ -29,8 +29,6 @@ public class SpringUtil implements ApplicationContextAware {
 
     /**
      * 获取applicationContext
-     * @author wuyiyuan
-     * Created DateTime 2021-12-15 9:26
      * @return org.springframework.context.ApplicationContext
      */
     public static ApplicationContext getApplicationContext() {
@@ -39,8 +37,6 @@ public class SpringUtil implements ApplicationContextAware {
 
     /**
      * 通过name获取 Bean.
-     * @author wuyiyuan
-     * Created DateTime 2021-12-15 9:26
      * @param name bean名称
      * @return java.lang.Object
      */
@@ -50,8 +46,6 @@ public class SpringUtil implements ApplicationContextAware {
 
     /**
      * 通过class获取Bean.
-     * @author wuyiyuan
-     * Created DateTime 2021-12-15 9:27
      * @param clazz 类.class
      * @return T
      */

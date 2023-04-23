@@ -33,8 +33,6 @@ public class IfRun<T, R> {
      * 链式多条件执行并返回结果，如果都没有执行将返回默认
      *
      * @param t 输出参数
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:16
      */
     public IfRun(T t) {
         this.t = t;
@@ -45,8 +43,6 @@ public class IfRun<T, R> {
      *
      * @param t           输入参数
      * @param defineValue 默认值
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:15
      */
     public IfRun(T t, R defineValue) {
         this.t = t;
@@ -58,8 +54,6 @@ public class IfRun<T, R> {
      *
      * @param t         输入参数
      * @param exception 抛出异常
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
      */
     public IfRun(T t, RuntimeException exception) {
         this.t = t;
@@ -71,8 +65,6 @@ public class IfRun<T, R> {
      *
      * @param t              输入参数
      * @param defineFunction 默认执行
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
      */
     public IfRun(T t, Function<T, R> defineFunction) {
         this.t = t;
@@ -84,8 +76,6 @@ public class IfRun<T, R> {
      *
      * @param t              输入参数
      * @param defineSupplier 默认执行
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
      */
     public IfRun(T t, Supplier<R> defineSupplier) {
         this.t = t;
@@ -113,10 +103,8 @@ public class IfRun<T, R> {
      *
      * @param b 判断是否执行
      * @param f 要执行的函数
-     * @return com.wuyiyuan.util.list.IfRun<T, R>
-     * @author wuyiyuan
+     * @return com.mortal2019.ifrun.IfRun<T, R>
      * @deprecated 使用ifRun函数
-     * Created DateTime 2022-05-21 16:17
      */
     @Deprecated
     public IfRun<T, R> add(Boolean b, Function<T, R> f) {
@@ -128,9 +116,7 @@ public class IfRun<T, R> {
      *
      * @param b 判断是否执行
      * @param f 要执行的函数
-     * @return com.wuyiyuan.util.list.IfRun<T, R>
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
+     * @return com.mortal2019.ifrun.IfRun<T, R>
      */
     public IfRun<T, R> ifRun(Boolean b, Function<T, R> f) {
         if (isAllowExecution(b)) {
@@ -144,16 +130,12 @@ public class IfRun<T, R> {
      *
      * @param b 执行条件
      * @return boolean
-     * @author wuyiyuan
-     * Created DateTime 2023-01-24 14:09
      */
     private boolean isAllowExecution(Boolean b) {
         return b && !isAlreadyExecution();
     }
     /**
      * 已经有执行的函数了
-     * @author wuyiyuan
-     * Created DateTime 2023-01-24 14:10
      * @return boolean
      */
     @SuppressWarnings("all")
@@ -166,9 +148,7 @@ public class IfRun<T, R> {
      *
      * @param b        判断是否执行
      * @param supplier 要执行的函数
-     * @return com.wuyiyuan.util.list.IfRun<T, R>
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
+     * @return com.mortal2019.ifrun.IfRun<T, R>
      * @deprecated 使用ifRun函数
      */
     @Deprecated
@@ -181,9 +161,7 @@ public class IfRun<T, R> {
      *
      * @param b        判断是否执行
      * @param supplier 要执行的函数
-     * @return com.wuyiyuan.util.list.IfRun<T, R>
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:17
+     * @return com.mortal2019.ifrun.IfRun<T, R>
      */
     public IfRun<T, R> ifRun(Boolean b, Supplier<R> supplier) {
 //        if (this.supplier == null && this.function == null && b) {
@@ -199,8 +177,6 @@ public class IfRun<T, R> {
      * 获取执行结果
      *
      * @return java.util.Optional<R>
-     * @author wuyiyuan
-     * Created DateTime 2022-05-21 16:18
      */
     public Optional<R> run() {
         if (this.isAlreadyExecution()) {
@@ -230,8 +206,6 @@ public class IfRun<T, R> {
      *
      * @param other 要执行的函数
      * @return R
-     * @author wuyiyuan
-     * Created DateTime 2022-06-06 16:45
      */
     public R elseRun(Supplier<? extends R> other) {
         this.run();
@@ -248,8 +222,6 @@ public class IfRun<T, R> {
      *
      * @param exceptionSupplier 将返回要抛出的异常的供应商
      * @return R
-     * @author wuyiyuan
-     * Created DateTime 2022-06-06 16:51
      */
     public <X extends Throwable> R orElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
         this.run();
@@ -266,8 +238,6 @@ public class IfRun<T, R> {
      *
      * @param r 指定值
      * @return R
-     * @author wuyiyuan
-     * Created DateTime 2023-01-24 13:56
      */
     public R orElse(R r) {
         this.run();

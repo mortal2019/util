@@ -15,8 +15,7 @@ public class BaseAssert {
     private static RuntimeException throwEx(String message) {
         if (exceptionProxy == null) {
             return new RuntimeException(message);
-        }
-        else {
+        } else {
             return exceptionProxy.apply(message);
         }
     }
@@ -25,8 +24,6 @@ public class BaseAssert {
      * 接受到异常信息后的异常抛出处理
      *
      * @param proxy 接受到异常信息后的代理。
-     * @author wuyiyuan
-     * Created DateTime 2021-12-10 14:43
      */
     public static void exceptionProxy(Function<String, RuntimeException> proxy) {
         exceptionProxy = proxy;
