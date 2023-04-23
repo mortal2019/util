@@ -48,6 +48,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <scm>
+        <url>https://github.com/mortal2019/utils</url>
+        <connection>scm:git:git@github.com:mortal2019/utils</connection>
+        <developerConnection>scm:git:git@github.com:mortal2019/utils</developerConnection>
+    </scm>
 
     <dependencies>
         <!--region web 引擎-->

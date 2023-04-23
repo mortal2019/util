@@ -1,0 +1,93 @@
+package com.mortal2019.date;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+/**
+ *
+ * @author wuyiyuan
+ * @version v1.0.0.0
+ * Created DateTime 2023/4/23 11:29
+ */
+public class TimestampUtil {
+    public static final String FORMAT_YEAR_MONTH_DAY = "yyyy-MM-dd";
+    public static final String FORMAT_YEAR_MONTH_DAY_HOUR = "yyyy-MM-dd HH";
+    public static final String FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE = "yyyy-MM-dd HH:mm";
+    public static final String FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = "yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * Convert to the start time
+     *
+     * @param value - string
+     * @return java.sql.Timestamp
+     * @author wuyiyuan
+     * Created DateTime 2023/4/23 11:29
+     */
+    public static Timestamp beginTime(String value) {
+        try {
+            String tempV = value;
+            if (tempV.length() == FORMAT_YEAR_MONTH_DAY.length()) {
+                tempV += " 00:00:00";
+            }
+            else if (tempV.length() == FORMAT_YEAR_MONTH_DAY_HOUR.length()) {
+                tempV += ":00:00";
+            }
+            else if (tempV.length() == FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE.length()) {
+                tempV += ":00";
+            }
+            return Timestamp.valueOf(tempV);
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Convert to the end time
+     *
+     * @param value - string
+     * @return java.sql.Timestamp
+     * @author wuyiyuan
+     * Created DateTime 2023/4/23 11:30
+     */
+    public static Timestamp endTime(String value) {
+        try {
+            String tempV = value;
+            if (tempV.length() == FORMAT_YEAR_MONTH_DAY.length()) {
+                tempV += " 23:59:59";
+            }
+            else if (tempV.length() == FORMAT_YEAR_MONTH_DAY_HOUR.length()) {
+                tempV += ":59:59";
+            }
+            else if (tempV.length() == FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE.length()) {
+                tempV += ":59";
+            }
+            return Timestamp.valueOf(tempV);
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Determines whether it can be converted to a Timestamp string
+     *
+     * @param value - string
+     * @return boolean
+     * @author wuyiyuan
+     * Created DateTime 2023/4/23 11:30
+     */
+    public static boolean isTimestampString(String value) {
+        return endTime(value) != null;
+    }
+
+    public static String toString(Timestamp timestamp, String format) {
+        try {
+            return new SimpleDateFormat(format).format(timestamp);
+        }
+        catch (Exception ex) {
+            return "";
+        }
+    }
+
+}
