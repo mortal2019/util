@@ -1,4 +1,4 @@
-package com.mortal2019.event_notice.change;
+package com.mortal2019.event_notice.change.data;
 
 import java.util.Locale;
 

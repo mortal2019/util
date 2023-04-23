@@ -1,4 +1,7 @@
-package com.mortal2019.event_notice.change;
+package com.mortal2019.event_notice.change.data;
+
+import com.mortal2019.event_notice.change.IChangeNotice;
+import com.mortal2019.event_notice.change.data.ChangeData;
 
 import java.util.HashMap;
 import java.util.Map;
