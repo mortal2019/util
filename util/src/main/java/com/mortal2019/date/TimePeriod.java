@@ -43,9 +43,9 @@ public class TimePeriod {
         return new TimePeriod(beginTime, endTime);
     }
     /**
-     * The point in time is inside the current time range (excluding boundaries)
+     * 检测时间点是否在当前时间段内
      *
-     * @param timestamp Detection time point
+     * @param timestamp 检测时间点
      * @return boolean
      * @author wuyiyuan
      * Created DateTime 2023/4/23 11:34

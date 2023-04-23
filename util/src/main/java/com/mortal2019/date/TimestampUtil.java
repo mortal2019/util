@@ -16,7 +16,7 @@ public class TimestampUtil {
     public static final String FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = "yyyy-MM-dd HH:mm:ss";
 
     /**
-     * Convert to the start time
+     * 转化为开始时间
      *
      * @param value - string
      * @return java.sql.Timestamp
@@ -43,7 +43,7 @@ public class TimestampUtil {
     }
 
     /**
-     * Convert to the end time
+     * 转化为结束时间
      *
      * @param value - string
      * @return java.sql.Timestamp
@@ -70,7 +70,7 @@ public class TimestampUtil {
     }
 
     /**
-     * Determines whether it can be converted to a Timestamp string
+     * 判端是否为时间字符串类型
      *
      * @param value - string
      * @return boolean
