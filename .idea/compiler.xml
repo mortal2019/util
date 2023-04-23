@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="util" />
+        <module name="cloud-util" />
         <module name="core" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-util" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="util" options="-parameters" />
       <module name="utils" options="" />
