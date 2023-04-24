@@ -1,7 +1,7 @@
 package com.mortal2019.model;
 
 import com.mortal2019.asserts.BaseAssert;
-import com.mortal2019.exception.ResultException;
+import com.mortal2019.exception_model.ResultException;
 import com.mortal2019.functional.MapToT;
 import com.mortal2019.functional.ObjectToT;
 import com.mortal2019.map.MapUtil;

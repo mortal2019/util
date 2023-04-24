@@ -1,4 +1,6 @@
-package com.mortal2019.exception;
+package com.mortal2019.exception_model;
+
+import com.mortal2019.exception.BaseException;
 
 /**
  * Result解析报错
