@@ -7,6 +7,8 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 
 /**
+ * Md5加盐算法工具类
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/23 15:16

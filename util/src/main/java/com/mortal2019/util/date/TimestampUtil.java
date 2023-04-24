@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
+ * SQL时间工具类
  *
  * @author wuyiyuan
  * @version v1.0.0.0

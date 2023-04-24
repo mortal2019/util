@@ -11,6 +11,8 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 基本定时任务
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/23 16:32

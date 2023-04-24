@@ -5,6 +5,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
+ * 线程池创建工具类
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/24 9:59

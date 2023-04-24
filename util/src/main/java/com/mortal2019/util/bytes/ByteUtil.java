@@ -3,6 +3,8 @@ package com.mortal2019.util.bytes;
 import java.math.BigInteger;
 
 /**
+ * 二进制工具类
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/23 16:12

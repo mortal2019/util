@@ -21,6 +21,8 @@ import java.util.function.Supplier;
 
 
 /**
+ * Map工具类
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/23 14:53

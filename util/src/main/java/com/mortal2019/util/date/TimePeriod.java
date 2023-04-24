@@ -3,6 +3,8 @@ package com.mortal2019.util.date;
 import java.sql.Timestamp;
 
 /**
+ * SQL时间段工具类
+ *
  * @author wuyiyuan
  * @version v1.0.0.0
  * Created DateTime 2023/4/23 11:32
