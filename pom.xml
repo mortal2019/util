@@ -23,6 +23,7 @@
         <module>util</module>
         <module>core</module>
         <module>cloud-util</module>
+        <module>model</module>
     </modules>
 
     <distributionManagement>
