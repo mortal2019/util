@@ -24,35 +24,35 @@ public class IdCardUtil {
     /**
      * 位数不足
      */
-    public static final String LACKDIGITS = "身份证号码长度应该为15位或18位。";
+    public static final String LACK_DIGITS = "身份证号码长度应该为15位或18位。";
     /**
      * 最后一位应为数字
      */
-    public static final String LASTOFNUMBER = "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";
+    public static final String LAST_OF_NUMBER = "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";
     /**
      * 出生日期无效
      */
-    public static final String INVALIDBIRTH = "身份证出生日期无效。";
+    public static final String INVALID_BIRTH = "身份证出生日期无效。";
     /**
      * 生日不在有效范围
      */
-    public static final String INVALIDSCOPE = "身份证生日不在有效范围。";
+    public static final String INVALID_SCOPE = "身份证生日不在有效范围。";
     /**
      * 月份无效
      */
-    public static final String INVALIDMONTH = "身份证月份无效";
+    public static final String INVALID_MONTH = "身份证月份无效";
     /**
      * 日期无效
      */
-    public static final String INVALIDDAY = "身份证日期无效";
+    public static final String INVALID_DAY = "身份证日期无效";
     /**
      * 身份证地区编码错误
      */
-    public static final String CODINGERROR = "身份证地区编码错误。";
+    public static final String CODING_ERROR = "身份证地区编码错误。";
     /**
      * 身份证校验码无效
      */
-    public static final String INVALIDCALIBRATION = "身份证校验码无效，不是合法的身份证号码";
+    public static final String INVALID_CALIBRATION = "身份证校验码无效，不是合法的身份证号码";
 
     /**
      * 检验身份证号码是否符合规范
@@ -60,23 +60,23 @@ public class IdCardUtil {
      * @param IDStr 身份证号码
      * @return 错误信息或成功信息
      */
-    public static String IDCardValidate(String IDStr) throws ParseException {
+    public static String IDCardValidate(String IDStr) {
         String tipInfo = VALIDITY;// 记录错误信息
-        String Ai = "";
+        String Ai;
         // 判断号码的长度 15位或18位
         if (IDStr.length() != 15 && IDStr.length() != 18) {
-            tipInfo = LACKDIGITS;
+            tipInfo = LACK_DIGITS;
             return tipInfo;
         }
 
         // 18位身份证前17位位数字，如果是15位的身份证则所有号码都为数字
         if (IDStr.length() == 18) {
             Ai = IDStr.substring(0, 17);
-        } else if (IDStr.length() == 15) {
+        } else {
             Ai = IDStr.substring(0, 6) + "19" + IDStr.substring(6, 15);
         }
-        if (isNumeric(Ai) == false) {
-            tipInfo = LASTOFNUMBER;
+        if (!isNumeric(Ai)) {
+            tipInfo = LAST_OF_NUMBER;
             return tipInfo;
         }
 
@@ -84,8 +84,8 @@ public class IdCardUtil {
         String strYear = Ai.substring(6, 10);// 年份
         String strMonth = Ai.substring(10, 12);// 月份
         String strDay = Ai.substring(12, 14);// 日期
-        if (isDate(strYear + "-" + strMonth + "-" + strDay) == false) {
-            tipInfo = INVALIDBIRTH;
+        if (!isDate(strYear + "-" + strMonth + "-" + strDay)) {
+            tipInfo = INVALID_BIRTH;
             return tipInfo;
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -93,20 +93,18 @@ public class IdCardUtil {
         try {
             if ((gc.get(Calendar.YEAR) - Integer.parseInt(strYear)) > 150
                     || (gc.getTime().getTime() - s.parse(strYear + "-" + strMonth + "-" + strDay).getTime()) < 0) {
-                tipInfo = INVALIDSCOPE;
+                tipInfo = INVALID_SCOPE;
                 return tipInfo;
             }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        } catch (java.text.ParseException e) {
+        } catch (NumberFormatException | ParseException e) {
             e.printStackTrace();
         }
         if (Integer.parseInt(strMonth) > 12 || Integer.parseInt(strMonth) == 0) {
-            tipInfo = INVALIDMONTH;
+            tipInfo = INVALID_MONTH;
             return tipInfo;
         }
         if (Integer.parseInt(strDay) > 31 || Integer.parseInt(strDay) == 0) {
-            tipInfo = INVALIDDAY;
+            tipInfo = INVALID_DAY;
             return tipInfo;
         }
 
@@ -114,12 +112,12 @@ public class IdCardUtil {
         Hashtable<String, String> areacode = getAreaCode();
         // 如果身份证前两位的地区码不在Hashtable，则地区码有误
         if (areacode.get(Ai.substring(0, 2)) == null) {
-            tipInfo = CODINGERROR;
+            tipInfo = CODING_ERROR;
             return tipInfo;
         }
 
-        if (isVarifyCode(Ai, IDStr) == false) {
-            tipInfo = INVALIDCALIBRATION;
+        if (!isVarifyCode(Ai, IDStr)) {
+            tipInfo = INVALID_CALIBRATION;
             return tipInfo;
         }
 
@@ -146,10 +144,7 @@ public class IdCardUtil {
         String strVerifyCode = VarifyCode[modValue];
         Ai = Ai + strVerifyCode;
         if (IDStr.length() == 18) {
-            if (Ai.equals(IDStr) == false) {
-                return false;
-
-            }
+            return Ai.equals(IDStr);
         }
         return true;
     }
@@ -160,7 +155,7 @@ public class IdCardUtil {
      * @return Hashtable 对象
      */
     private static Hashtable<String, String> getAreaCode() {
-        Hashtable<String, String> hashtable = new Hashtable<String, String>();
+        Hashtable<String, String> hashtable = new Hashtable<>();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");
         hashtable.put("13", "河北");
@@ -202,17 +197,13 @@ public class IdCardUtil {
     /**
      * 判断字符串是否为数字,0-9重复0次或者多次
      *
-     * @param strnum
+     * @param strNum - String
      * @return true, 符合; false, 不符合。
      */
-    private static boolean isNumeric(String strnum) {
+    private static boolean isNumeric(String strNum) {
         Pattern pattern = Pattern.compile("[0-9]*");
-        Matcher isNum = pattern.matcher(strnum);
-        if (isNum.matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        Matcher isNum = pattern.matcher(strNum);
+        return isNum.matches();
     }
 
     /**
@@ -225,11 +216,7 @@ public class IdCardUtil {
         Pattern pattern = Pattern.compile(
                 "^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))?$");
         Matcher m = pattern.matcher(strDate);
-        if (m.matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return m.matches();
     }
 
     /**
@@ -240,13 +227,13 @@ public class IdCardUtil {
      * @author wuyiyuan
      * Created DateTime 2023/4/24 16:36
      */
-    public static String getBirthDay(String strDate) throws ParseException {
+    public static String getBirthDay(String strDate) {
         if (VALIDITY.equals(IDCardValidate(strDate))) {
             String strYear = strDate.substring(6, 10);// 年份
             String strMonth = strDate.substring(10, 12);// 月份
             String strDay = strDate.substring(12, 14);// 日期
             return strYear + "-" + strMonth + "-" + strDay;
         }
-        return INVALIDBIRTH;
+        return INVALID_BIRTH;
     }
 }
