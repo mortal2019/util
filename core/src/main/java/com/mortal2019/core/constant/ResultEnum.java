@@ -13,8 +13,8 @@ public enum ResultEnum {
     CUSTOM_ERROR(-1,"自定义错误"),
     ;
 
-    private Integer code;
-    private String message;
+    private final Integer code;
+    private final String message;
 
     ResultEnum(Integer code, String message) {
         this.code = code;
