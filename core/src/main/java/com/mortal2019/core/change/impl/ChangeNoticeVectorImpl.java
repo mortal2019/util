@@ -8,13 +8,14 @@ import java.util.Vector;
 import java.util.function.Consumer;
 
 /**
+ * 消费者使用示例: <br/>
  * <pre>
  * {@code
  * public class Consumer {
  *     private final  ChangeNoticeVectorImpl<T> changeNoticeVector;
  *
  *     public Consumer() {
- *          changeNoticeVector = new ChangeNoticeVectorImpl<>(this.getClass().getName(), this::execute)
+ *    changeNoticeBase=new ChangeNoticeBaseImpl<>(this.getClass().getName(),this::execute);
  *     }
  *
  *     // 注册到发送者的Map中
@@ -30,9 +31,7 @@ import java.util.function.Consumer;
  * }
  * </pre>
  *
- *
- *
- * 线程安全消费事件
+ * 线程安全消费者
  *
  * @author wuyiyuan
  * @version v1.0.0.0

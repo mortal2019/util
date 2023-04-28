@@ -7,29 +7,30 @@ import com.mortal2019.core.change.data.Data;
 import java.util.function.Consumer;
 
 /**
+ * 消费者使用示例: <br/>
  * <pre>
  * {@code
  * public class Consumer {
- *     private final  ChangeNoticeBaseImpl<T> changeNoticeBase;
+ *   private final  ChangeNoticeBaseImpl<T> changeNoticeBase;
  *
- *     public Consumer() {
- *          changeNoticeBase = new ChangeNoticeBaseImpl<>(this.getClass().getName(), this::execute)
- *     }
+ *   public Consumer() {
+ *    changeNoticeBase=new ChangeNoticeBaseImpl<>(this.getClass().getName(),this::execute);
+ *   }
  *
- *     // 注册到发送者的Map中
- *     @Autowired
- *     public void reg(Sender sender) {
- *         sender.reg(changeNoticeBase);
- *     }
+ *   // 注册到发送者的Map中
+ *   @Autowired
+ *   public void reg(Sender sender) {
+ *     sender.reg(changeNoticeBase);
+ *   }
  *
- *     public void execute(ChangeNoticeBaseImpl.Data<T> data) {
- *          // 处理发送者传送的消息
- *     }
+ *   public void execute(ChangeNoticeBaseImpl.Data<T> data) {
+ *        // 处理发送者传送的消息
+ *   }
  * }
  * }
  * </pre>
  *
- * 线程不安全消费事件
+ * 线程不安全消费者
  *
  * @author wuyiyuan
  * @version v1.0.0.0
