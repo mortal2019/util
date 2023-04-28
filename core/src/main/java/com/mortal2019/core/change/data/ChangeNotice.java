@@ -9,6 +9,32 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
 /**
+ * 举个例子
+ *
+ * <pre>
+ *     {@code
+ *     public class Sender {
+ *
+ *          private final ChangeNotice<T<?>> changeNotice;
+ *
+ *          public Sender() {
+ *              changeNotice = new ChangeNotice<>(this);
+ *         }
+ *
+ *          public void reg(IChangeNotice<T<?>> iChangeNotice) {
+ *              changeNotice.reg(iChangeNotice);
+ *          }
+ *
+ *          public void hello() {
+ *              String hello = "hello";
+ *              // 广播消息
+ *              changeNotice.changeNotice(hello);
+ *          }
+ *
+ *        }
+ *     }
+ * </pre>
+ *
  * 更新通知
  *
  * @author wuyiyuan

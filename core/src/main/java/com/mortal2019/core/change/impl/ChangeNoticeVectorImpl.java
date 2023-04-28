@@ -8,6 +8,30 @@ import java.util.Vector;
 import java.util.function.Consumer;
 
 /**
+ * <pre>
+ * {@code
+ * public class Consumer {
+ *     private final  ChangeNoticeVectorImpl<T> changeNoticeVector;
+ *
+ *     public Consumer() {
+ *          changeNoticeVector = new ChangeNoticeVectorImpl<>(this.getClass().getName(), this::execute)
+ *     }
+ *
+ *     // 注册到发送者的Map中
+ *     @Autowired
+ *     public void reg(Sender sender) {
+ *         sender.reg(changeNoticeBase);
+ *     }
+ *
+ *     public void execute(ChangeNoticeVectorImpl.Data<T> data) {
+ *          // 处理发送者传送的消息
+ *     }
+ * }
+ * }
+ * </pre>
+ *
+ *
+ *
  * 线程安全消费事件
  *
  * @author wuyiyuan
